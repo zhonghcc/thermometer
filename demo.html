@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Thermometer</title>
+
+<style type="text/css" media="screen">
+    body { font-family: helvetica, verdana, sans-serif; font-size: 14px; padding: 0 20px; }
+    a#documentation { float: right; }
+    em { color: #95A105; font-style: normal; }
+    
+    /* Thermometer styles */
+    .thermometer_wrapper {
+      float: left;
+      width: 663px;
+      border: 1px solid #afafaf;
+      background: #D6AD60;
+      padding: 10px 15px;
+    }
+    .thermometer_wrapper h4.thermometer_current_status {
+      margin: 0;
+    }
+    .thermometer_wrapper ul.thermometer { text-align: center; }
+    
+    .thermometer_wrapper ul.thermometer .progress_bar {
+      background-image: url(thermometer.png);
+      background-repeat: no-repeat;
+      width: 662px;
+      height: 29px;
+    }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_5 { background-position: 0 0; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_10 { background-position: 0 -29px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_15 { background-position: 0 -58px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_20 { background-position: 0 -87px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_25 { background-position: 0 -116px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_30 { background-position: 0 -145px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_35 { background-position: 0 -174px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_40 { background-position: 0 -203px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_45 { background-position: 0 -232px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_50 { background-position: 0 -261px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_55 { background-position: 0 -290px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_60 { background-position: 0 -319px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_65 { background-position: 0 -348px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_70 { background-position: 0 -377px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_75 { background-position: 0 -406px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_80 { background-position: 0 -435px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_85 { background-position: 0 -464px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_90 { background-position: 0 -493px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_95 { background-position: 0 -522px; }
+    .thermometer_wrapper ul.thermometer .progress_bar.progress_100 { background-position: 0 -551px; }
+
+    .thermometer_wrapper ul.thermometer li {
+      display: inline-block;
+      font-size: 11px;
+      color: #898b8b;
+      padding: 0 18px;
+      margin-bottom: 0;
+    }
+    .thermometer_wrapper ul.thermometer li.active { color: black; }
+
+</style>
+
+<!-- javascripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://raw.github.com/coryschires/hot-stepper/master/jquery.thermometer.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      $('ul').thermometer();
+    });
+</script>
+
+</head>
+<body>
+  <a href="https://github.com/coryschires/hot-stepper/" id="documentation">back to github</a>
+  <h1>jQuery <em>Thermometer</em> Plugin</h1>
+
+  <ul>
+    <li>Personal Info</li>
+    <li>Payment Info</li>
+    <li>Billing Address</li>
+    <li>Special Instructions</li>
+    <li>Order Confirmation</li>
+  </ul>
+
+  </body>
+</html>

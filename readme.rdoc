@@ -1,0 +1,30 @@
+= jQuery Thermometer Plugin
+
+Helps turns any list into a nice looking progress thermometer
+
+
+
+== How to make it work.
+
+
+
+== Configuration options.
+
+
+
+== Public Methods.
+
+
+
+== Demo.
+Try out the {live demo}[http://coryschires.github.com/thermometer/].
+
+
+
+== Having problems?
+Please create an issue. If you're feeling especially nice, attach a pull request.
+
+
+
+== Todo.
+* Unit tests
