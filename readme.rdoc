@@ -10,7 +10,14 @@ First, include both <tt>jquery</tt> and <tt>jquery.thermometer.js</tt> in your <
   <script src="path/to/jquery.js" type="text/javascript"></script>
   <script src="path/to/jquery.thermometer.js" type="text/javascript"></script>  
 
-Then, add a list to your page:
+Next, invoke the plugin:
+
+  $(document).ready(function() {
+    $('ul').thermometer();
+  });
+  
+
+Finally, add a list to your page:
 
   <ul>
     <li>Personal Info</li>
@@ -40,7 +47,7 @@ Finally, you're going to need to write some CSS and create a corresponding therm
     </ul>
   </div>
 
-As you can see, we add a little bit of markup to the DOM. First, <tt>thermometer_current_status</tt> contains our title. By default, it will use the text from the currently active list item. You can override this behavior using a configuration option (see below). 
+As you can see, we've added a little bit of markup to the DOM. First, <tt>thermometer_current_status</tt> contains our title. By default, it will use the text from the currently active list item. You can override this behavior using a configuration option (see below). 
 
 Next, we insert a <tt>progress_bar</tt> div with a dynamic class specifying the percentage of progress completed rounded to the nearest 5 percent (i.e. progress_5, progress_10, progress_15, etc). You can use this class as hook for positioning your background image.
 
@@ -74,17 +81,34 @@ This means your CSS should look something like:
 
 And your corresponding sprite might looks something like:
 
-https://github.com/coryschires/thermometer/raw/master/thermometer.png
+http://github.com/coryschires/thermometer/raw/master/thermometer.png
 
 This can be a little tricky if you're not familiar using CSS sprites. If you're confused, I suggest having a look at the both the CSS and image sprite used in the demo. Or, feel free to use that exact code. I don't mind.
 
 
 
 == Configuration options.
+You can change the name of the class for currently active state:
+  $('ul').thermometer({
+    active_class: 'current'  // defaults to 'active'
+  });
+
+You can also specify the markup to be used when creating the thermometer title: 
+  $('ul').thermometer({
+    // Defaults to the text of the currently active list item. The interpolated
+    // symbol {{active}} will be dynamically replaced with the text from the 
+    // currently active list item.
+    title_markup: '<em>Current Status:</em> {{active}}'
+  });
 
 
 
 == Public Methods.
+We have only one public method <tt>update_active_state</tt>, which you can use to re-draw the thermometer without having to reload the entire page:
+
+  $('ul').thermometer('update_active_state');
+
+This can be useful for AJAX-y stuff (e.g. transitioning between steps of on a multistep form).
 
 
 
