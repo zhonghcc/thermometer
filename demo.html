@@ -5,29 +5,20 @@
 <title>Thermometer</title>
 
 <style type="text/css" media="screen">
+    /* Basic reset stuff */
     body { font-family: helvetica, verdana, sans-serif; font-size: 14px; padding: 0 20px; }
     a#documentation { float: right; }
     em { color: #95A105; font-style: normal; }
     
     /* Thermometer styles */
-    .thermometer_wrapper {
-      float: left;
-      width: 663px;
-      border: 1px solid #afafaf;
-      background: #D6AD60;
-      padding: 10px 15px;
-    }
-    .thermometer_wrapper h4.thermometer_current_status {
-      margin: 0;
-    }
-    .thermometer_wrapper ul.thermometer { text-align: center; }
+    .thermometer_wrapper { width: 663px; border: 1px solid #afafaf; background: #e0e0e0; padding: 10px 15px; margin-top: 30px; }
+    .thermometer_wrapper h4.thermometer_current_status { margin: 0; }
+    .thermometer_wrapper ul.thermometer { text-align: center; padding: 0; }
+    .thermometer_wrapper ul.thermometer li { display: inline-block; font-size: 11px; color: #898b8b; padding: 0 30px; }
+    .thermometer_wrapper ul.thermometer li.active { color: black; }
     
-    .thermometer_wrapper ul.thermometer .progress_bar {
-      background-image: url(thermometer.png);
-      background-repeat: no-repeat;
-      width: 662px;
-      height: 29px;
-    }
+    /* Background positioning for each step */
+    .thermometer_wrapper ul.thermometer .progress_bar { background-image: url(thermometer.png); background-repeat: no-repeat; width: 662px; height: 29px; }
     .thermometer_wrapper ul.thermometer .progress_bar.progress_5 { background-position: 0 0; }
     .thermometer_wrapper ul.thermometer .progress_bar.progress_10 { background-position: 0 -29px; }
     .thermometer_wrapper ul.thermometer .progress_bar.progress_15 { background-position: 0 -58px; }
@@ -48,16 +39,6 @@
     .thermometer_wrapper ul.thermometer .progress_bar.progress_90 { background-position: 0 -493px; }
     .thermometer_wrapper ul.thermometer .progress_bar.progress_95 { background-position: 0 -522px; }
     .thermometer_wrapper ul.thermometer .progress_bar.progress_100 { background-position: 0 -551px; }
-
-    .thermometer_wrapper ul.thermometer li {
-      display: inline-block;
-      font-size: 11px;
-      color: #898b8b;
-      padding: 0 18px;
-      margin-bottom: 0;
-    }
-    .thermometer_wrapper ul.thermometer li.active { color: black; }
-
 </style>
 
 <!-- javascripts -->
@@ -78,10 +59,17 @@
   <ul>
     <li>Personal Info</li>
     <li>Payment Info</li>
-    <li>Billing Address</li>
-    <li>Special Instructions</li>
-    <li>Order Confirmation</li>
+    <li class="active">Billing Address</li>
+    <li>Shipping Address</li>
+    <li>Confirmation</li>
   </ul>
-
+  
+  <ul>
+    <li>Personal Info</li>
+    <li>Payment Info</li>
+    <li>Billing Address</li>
+    <li>Shipping Address</li>
+    <li class="active">Confirmation</li>
+  </ul>
   </body>
 </html>
