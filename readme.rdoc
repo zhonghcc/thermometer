@@ -47,7 +47,7 @@ Finally, you're going to need to write some CSS and create a corresponding therm
     </ul>
   </div>
 
-As you can see, we've added a little bit of markup to the DOM. First, <tt>thermometer_current_status</tt> contains our title. By default, it will use the text from the currently active list item. You can override this behavior using a configuration option (see below). 
+As you can see, we've added a little bit of markup to the page. First, <tt>thermometer_current_status</tt> contains our title. By default, it will use the text from the currently active list item. You can override this behavior using a configuration option (see below). 
 
 Next, we insert a <tt>progress_bar</tt> div with a dynamic class specifying the percentage of progress completed rounded to the nearest 5 percent (i.e. progress_5, progress_10, progress_15, etc). You can use this class as hook for positioning your background image.
 
@@ -88,7 +88,7 @@ This can be a little tricky if you're not familiar using CSS sprites. If you're 
 
 
 == Configuration options.
-You can change the name of the class for currently active state:
+You can change the name of the class for the currently active state:
   $('ul').thermometer({
     active_class: 'current'  // defaults to 'active'
   });
@@ -113,7 +113,7 @@ This can be useful for AJAX-y stuff (e.g. transitioning between steps of on a mu
 
 
 == Demo.
-Try out the {live demo}[http://coryschires.github.com/thermometer/].
+View the {live demo}[http://coryschires.github.com/thermometer/].
 
 
 
