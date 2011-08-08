@@ -22,6 +22,10 @@ Then, add a list to your page:
 
 It can be an ordered or unordered list and can have any number of list items. Notice that the current step should have a class of <tt>active</tt>. If you'd rather name you active class something else (e.g. current), you can do so using a configuration option (see below).
 
+
+
+== Adding the necessary CSS.
+
 Finally, you're going to need to write some CSS and create a corresponding thermometer sprite.  The plugin will create the following markup:
 
   <div class="thermometer_wrapper">
@@ -70,7 +74,7 @@ This means your CSS should look something like:
 
 And your corresponding sprite might looks something like:
 
-
+https://github.com/coryschires/thermometer/raw/master/thermometer.png
 
 This can be a little tricky if you're not familiar using CSS sprites. If you're confused, I suggest having a look at the both the CSS and image sprite used in the demo. Or, feel free to use that exact code. I don't mind.
 

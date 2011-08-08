@@ -1,5 +1,6 @@
 /**
-* Thermometer - jQuery plugin which... TODO: add description
+* Thermometer - jQuery plugin which helps turns any list into 
+* a nice looking progress thermometer
 * 
 * Source Code: https://github.com/coryschires/thermometer
 * 
