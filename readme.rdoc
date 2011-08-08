@@ -85,6 +85,8 @@ And your corresponding sprite might looks something like:
 
 http://github.com/coryschires/thermometer/raw/master/thermometer.png
 
+<i>Credit {Rob Walsh}[http://www.robwalshonline.com/] for the nice looking thermometer design</i>
+
 This can be a little tricky if you're not familiar using CSS sprites. If you're confused, I suggest having a look at the both the CSS and image sprite used in the demo. Or, feel free to use that exact code. I don't mind.
 
 
