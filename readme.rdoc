@@ -1,5 +1,7 @@
 = jQuery Thermometer Plugin
 
+http://coryschires-blog-post-images.s3.amazonaws.com/thermometer/thermometer.png
+
 Helps turns any list into a nice looking progress thermometer
 
 
