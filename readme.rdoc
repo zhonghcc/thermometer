@@ -8,16 +8,16 @@ Helps turns any list into a nice looking progress thermometer
 
 == How to make it work.
 First, include both <tt>jquery</tt> and <tt>jquery.thermometer.js</tt> in your <tt>head</tt> element:
-  
+
   <script src="path/to/jquery.js" type="text/javascript"></script>
-  <script src="path/to/jquery.thermometer.js" type="text/javascript"></script>  
+  <script src="path/to/jquery.thermometer.js" type="text/javascript"></script>
 
 Next, invoke the plugin:
 
   $(document).ready(function() {
     $('ul').thermometer();
   });
-  
+
 
 Finally, add a list to your page:
 
@@ -49,46 +49,27 @@ Finally, you're going to need to write some CSS and create a corresponding therm
     </ul>
   </div>
 
-As you can see, we've added a little bit of markup to the page. First, <tt>thermometer_current_status</tt> contains our title. By default, it will use the text from the currently active list item. You can override this behavior using a configuration option (see below). 
+As you can see, we've added a little bit of markup to the page. First, <tt>thermometer_current_status</tt> contains our title. By default, it will use the text from the currently active list item. You can override this behavior using a configuration option (see below).
 
-Next, we insert a <tt>progress_bar</tt> div with a dynamic class specifying the percentage of progress completed rounded to the nearest 5 percent (i.e. progress_5, progress_10, progress_15, etc). You can use this class as hook for positioning your background image.
-
+Next, the plugin dynamically sets the width of your thermometer. So you'll need to apply some styles.
 This means your CSS should look something like:
 
-  .progress_bar { 
-    background-image: url(thermometer.png); 
-    background-repeat: no-repeat; width: 
-    662px; height: 29px;
+  .progress_bar_wrapper {
+      padding: 5px 7px;
+      border-radius: 50px;
+      border: 1px solid #afafaf;
+      box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4);
+      background: url('faint_lines.png') repeat-x, -webkit-linear-gradient(top, #fafafa 0%, #d1d3d4 88%, #d5d5d5 94%, #d5d5d5 100%);
   }
-  .progress_bar.progress_5 { background-position: 0 0; }
-  .progress_bar.progress_10 { background-position: 0 -29px; }
-  .progress_bar.progress_15 { background-position: 0 -58px; }
-  .progress_bar.progress_20 { background-position: 0 -87px; }
-  .progress_bar.progress_25 { background-position: 0 -116px; }
-  .progress_bar.progress_30 { background-position: 0 -145px; }
-  .progress_bar.progress_35 { background-position: 0 -174px; }
-  .progress_bar.progress_40 { background-position: 0 -203px; }
-  .progress_bar.progress_45 { background-position: 0 -232px; }
-  .progress_bar.progress_50 { background-position: 0 -261px; }
-  .progress_bar.progress_55 { background-position: 0 -290px; }
-  .progress_bar.progress_60 { background-position: 0 -319px; }
-  .progress_bar.progress_65 { background-position: 0 -348px; }
-  .progress_bar.progress_70 { background-position: 0 -377px; }
-  .progress_bar.progress_75 { background-position: 0 -406px; }
-  .progress_bar.progress_80 { background-position: 0 -435px; }
-  .progress_bar.progress_85 { background-position: 0 -464px; }
-  .progress_bar.progress_90 { background-position: 0 -493px; }
-  .progress_bar.progress_95 { background-position: 0 -522px; }
-  .progress_bar.progress_100 { background-position: 0 -551px; }
+  .thermometer_wrapper ul.thermometer .progress_bar {
+      height: 19px;
+      border-radius: 50px;
+      border: 1px solid #0b729a;
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+      background: url('lines.png') repeat-x, linear-gradient(top, rgba(86,212,86,1) 0%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(25,130,26,1) 100%);
+  }
 
-And your corresponding sprite might looks something like:
-
-http://github.com/coryschires/thermometer/raw/master/thermometer.png
-
-<i>Credit {Rob Walsh}[http://www.robwalshonline.com/] for the nice looking thermometer design.</i>
-
-This can be a little tricky if you're not familiar using CSS sprites. If you're confused, I suggest having a look at the both the CSS and image sprite used in the demo. Or, feel free to use that exact code. I don't mind.
-
+<i>Credit {Rob Walsh}[http://www.robwalshonline.com/] for the nice looking thermometer styles.</i>
 
 
 == Configuration options.
@@ -97,14 +78,18 @@ You can change the name of the class for the currently active state:
     active_class: 'current'  // defaults to 'active'
   });
 
-You can also specify the markup to be used when creating the thermometer title: 
+You can also specify the markup to be used when creating the thermometer title:
   $('ul').thermometer({
     // Defaults to the text of the currently active list item. The interpolated
-    // symbol {{active}} will be dynamically replaced with the text from the 
+    // symbol {{active}} will be dynamically replaced with the text from the
     // currently active list item.
     title_markup: '<em>Current Status:</em> {{active}}'
   });
 
+Finally, you can set the thermometer to animate on page load:
+  $('ul').thermometer({
+    animate: true // defaults to false
+  });
 
 
 == Public Methods.
