@@ -9,36 +9,35 @@
     body { font-family: helvetica, verdana, sans-serif; font-size: 14px; padding: 0 20px; }
     a#documentation { float: right; }
     em { color: #95A105; font-style: normal; }
-    
+
     /* Thermometer styles */
     .thermometer_wrapper { width: 663px; border: 1px solid #afafaf; background: #e0e0e0; padding: 10px 15px; margin-top: 30px; }
     .thermometer_wrapper h4.thermometer_current_status { margin: 0; }
     .thermometer_wrapper ul.thermometer { text-align: center; padding: 0; }
     .thermometer_wrapper ul.thermometer li { display: inline-block; font-size: 11px; color: #898b8b; padding: 0 30px; }
     .thermometer_wrapper ul.thermometer li.active { color: black; }
-    
-    /* Background positioning for each step */
-    .thermometer_wrapper ul.thermometer .progress_bar { background-image: url(http://github.com/coryschires/thermometer/raw/master/thermometer.png); background-repeat: no-repeat; width: 662px; height: 29px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_5 { background-position: 0 0; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_10 { background-position: 0 -29px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_15 { background-position: 0 -58px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_20 { background-position: 0 -87px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_25 { background-position: 0 -116px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_30 { background-position: 0 -145px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_35 { background-position: 0 -174px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_40 { background-position: 0 -203px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_45 { background-position: 0 -232px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_50 { background-position: 0 -261px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_55 { background-position: 0 -290px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_60 { background-position: 0 -319px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_65 { background-position: 0 -348px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_70 { background-position: 0 -377px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_75 { background-position: 0 -406px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_80 { background-position: 0 -435px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_85 { background-position: 0 -464px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_90 { background-position: 0 -493px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_95 { background-position: 0 -522px; }
-    .thermometer_wrapper ul.thermometer .progress_bar.progress_100 { background-position: 0 -551px; }
+    .progress_bar_wrapper {
+        padding: 5px 7px;
+        border-radius: 50px;
+        border: 1px solid #afafaf;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.4);
+        background: url('faint_lines.png') repeat-x, -webkit-linear-gradient(top, #fafafa 0%, #d1d3d4 88%, #d5d5d5 94%, #d5d5d5 100%);
+    }
+    .thermometer_wrapper ul.thermometer .progress_bar {
+        width: 10px;
+        height: 19px;
+        border-radius: 50px;
+        border: 1px solid #0b729a;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+        background: rgb(86,212,86); /* Old browsers */
+        background: url('lines.png') repeat-x, -moz-linear-gradient(top, rgba(86,212,86,1) 0%, rgba(86,212,86,1) 45%, rgba(86,212,86,1) 45%, rgba(86,212,86,1) 45%, rgba(25,130,26,1) 100%); /* FF3.6+ */
+        background: url('lines.png') repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(86,212,86,1)), color-stop(45%,rgba(86,212,86,1)), color-stop(45%,rgba(86,212,86,1)), color-stop(45%,rgba(86,212,86,1)), color-stop(100%,rgba(25,130,26,1))); /* Chrome,Safari4+ */
+        background: url('lines.png') repeat-x, -webkit-linear-gradient(top, rgba(86,212,86,1) 0%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(25,130,26,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: url('lines.png') repeat-x, -o-linear-gradient(top, rgba(86,212,86,1) 0%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(25,130,26,1) 100%); /* Opera 11.10+ */
+        background:  url('lines.png') repeat-x, -ms-linear-gradient(top, rgba(86,212,86,1) 0%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(25,130,26,1) 100%); /* IE10+ */
+        background:  url('lines.png') repeat-x, linear-gradient(top, rgba(86,212,86,1) 0%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(86,212,86,1) 45%,rgba(25,130,26,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56d456', endColorstr='#19821a',GradientType=0 ); /* IE6-9 */
+    }
 </style>
 
 <!-- javascripts -->
@@ -47,24 +46,27 @@
 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
-      $('ul').thermometer();
+      $('ul.animate').thermometer({
+          animate: true
+      });
+      $('ul.static').thermometer();
     });
 </script>
 
 </head>
 <body>
-  <a href="https://github.com/coryschires/hot-stepper/" id="documentation">back to github</a>
+  <a href="https://github.com/coryschires/thermometer/" id="documentation">back to github</a>
   <h1>jQuery <em>Thermometer</em> Plugin</h1>
 
-  <ul>
+  <ul class="animate">
     <li>Personal Info</li>
     <li>Payment Info</li>
     <li class="active">Billing Address</li>
     <li>Shipping Address</li>
     <li>Confirmation</li>
   </ul>
-  
-  <ul>
+
+  <ul class="static">
     <li>Personal Info</li>
     <li>Payment Info</li>
     <li>Billing Address</li>
@@ -73,4 +75,3 @@
   </ul>
   </body>
 </html>
-
